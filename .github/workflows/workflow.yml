@@ -21,10 +21,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
-      - name: Create S3 stack
+      - name: Create S3 bucket
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: S3Stack
+          name: S3Bucket
           template: cloudformation/template-s3.yaml
           parameter-overrides: "BucketName=${{ secrets.AWS_S3_BUCKET }}"
           no-fail-on-empty-changeset: "1"
